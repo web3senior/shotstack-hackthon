@@ -1,0 +1,19 @@
+{
+  "name": "shotstack",
+  "version": "1.0.0",
+  "description": "Present your prototype by a video",
+  "main": "code.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "watch": "npm run build -- --watch"
+  },
+  "author": "Amir Rahimi",
+  "license": "MIT",
+  "devDependencies": {
+    "@figma/plugin-typings": "^1.52.0",
+    "typescript": "*"
+  },
+  "editorType": [
+    "figma"
+  ]
+}
