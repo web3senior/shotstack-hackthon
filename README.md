@@ -3,6 +3,10 @@ Shotstack's first ever hackathon is starting this Monday 26 September 2022. This
 
 [More Information](https://shotstack.io/learn/first-shotstack-public-hackathon/)
 
+## Demonstration & Demo
+■ [Demonstration](https://github.com/web3senior/shotstack-hackthon/blob/main/Demonstration.mp4?raw=true)
+
+■ [Demo](https://github.com/web3senior/shotstack-hackthon/blob/main/4dcaaa61-6eb9-41a7-b9c5-22875b3262e4.mp4?raw=true)
 
 ## Description
 Convert Figma prototype to a presentation video by using SHOTSTACK API &amp; Figma plugin.
