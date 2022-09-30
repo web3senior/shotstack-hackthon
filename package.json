@@ -1,7 +1,7 @@
 {
   "name": "shotstack",
   "version": "1.0.0",
-  "description": "Present your prototype by a video",
+  "description": "Convert Figma prototype to a presentation video by using Figma plugin & SHOTSTACK API",
   "main": "code.js",
   "scripts": {
     "build": "tsc -p tsconfig.json",

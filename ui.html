@@ -104,7 +104,7 @@
   const ACCESS_TOKEN = "figd_qHfBkeqP2rXClHNyo33vSe5w0MoXwbF4ufyflH-w";
   const FILE_ID = "8el5EkPAzbi72joapxJ2RE";
   let NODE_ID = [];
-  const FORMAT = 'png';
+  const FORMAT = 'jpg';
 
   console.clear()
 
@@ -116,7 +116,6 @@
       },
       "background": "#000000",
       "tracks": [
-
       ]
     },
     "output": {
@@ -147,58 +146,61 @@
 
 
   function convertFrameToImages() {
+
     var myHeaders = new Headers();
-    myHeaders.append("x-figma-token", "figd_qHfBkeqP2rXClHNyo33vSe5w0MoXwbF4ufyflH-w");
+    myHeaders.append("x-figma-token", "figd_wmoTB-0v30xUAUzMoa9Dx4ykctJqA1rWPIpFk-kj");
+
 
     var requestOptions = {
       method: 'GET',
       headers: myHeaders,
       redirect: 'follow'
     };
-
-    fetch(`https://api.figma.com/v1/images/${FILE_ID}?ids=${NODE_ID}&format=${FORMAT}`, requestOptions)
+    fetch(`https://api.figma.com/v1/images/${FILE_ID}?ids=${NODE_ID}&format=${FORMAT}`,
+      requestOptions)
       .then(response => response.json())
       .then(result => {
-
-        console.info('=>', Object.values(result.images)[0])
-        console.info('images===>', result.images)
+        console.log(result)
 
         let counter = 0;
         document.querySelector('#gallery').innerHTML = 'Selected Frames:'
-        for (const [key, value] of Object.entries(result.images)) {
 
-          console.log(`${key}: ${value}`);
-          document.querySelector('#gallery').innerHTML += `
+        for (const [key, value] of Object.entries(result.images)) {
+          // console.log(`${key}: ${value}`);
+          if (value !== null) {
+            document.querySelector('#gallery').innerHTML += `
         <img src='${value}' style='width:40px'/>
         `
-          template.timeline.tracks.push(
-            {
-              "clips": [
-                {
-                  "asset": {
-                    "type": "image",
-                    "src": value
-                  },
-                  "start": (parseInt(counter) * 4),
-                  "length": 5,
-                  "effect": "slideUp",
-                  "transition": {
-                    "out": "fade"
+            template.timeline.tracks.push(
+              {
+                "clips": [
+                  {
+                    "asset": {
+                      "type": "image",
+                      "src": value
+                    },
+                    "start": (parseInt(counter) * 4),
+                    "length": 5,
+                    "effect": "slideUp",
+                    "transition": {
+                      "out": "fade"
+                    }
                   }
-                }
-              ]
-            }
-          )
-          counter++
+                ]
+              }
+            )
+            counter++
+          } else {
+            console.warn('Get null')
+          }
 
         }
 
-        render()
+        (counter > 0) ? render() : console.error('No enough images to render')
 
       })
       .catch(error => console.log('error', error));
   }
-
 
   let checker;
 
@@ -233,8 +235,6 @@
       })
       .catch(error => console.log('error', error));
   }
-
-
 
   function checkRenderStatus(renderId) {
     var requestOptions = {
