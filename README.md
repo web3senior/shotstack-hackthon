@@ -27,7 +27,7 @@ A simple and quick way to create a beautiful video presentation of your interfac
 5. Make a tool to put the final video on the Figma presentation page(FYI, it's not possible to upload a video on Figma and play it during the presentation).
 
 ## Other plugins
-I found this [plugin](https://www.figma.com/community/plugin/908257968215073824/SUPA---Figma-to-video) on the Figma community so if you compare it with the Shotstack plugin you can see that it is not possible to select all frames, instead, you can just work on a frame in the same time.
+I found this [plugin](https://www.figma.com/community/plugin/908257968215073824/SUPA---Figma-to-video)(after that I made this project) on the Figma community so if you compare it with the Shotstack plugin you can see that it is not possible to select all frames, instead, you can just work on a frame in the same time.
 
 ## License
 The source code and graphical assets for this project are licensed under the MIT license.
